@@ -70,6 +70,7 @@ Task: Import the AAC Outcomes CSV file into MongoDB using the mongoimport tool, 
 •Output of the mongoimport command in the Linux terminal showing the command used to import the CSV file.
 •Terminal output confirming successful data import, including the number of documents imported.
 
+
 <img width="468" alt="image" src="https://github.com/user-attachments/assets/db4b00dc-9930-4c52-80a7-f62b70f0b298" />
 
 <img width="468" alt="image" src="https://github.com/user-attachments/assets/0dc6c058-bdd4-44bb-b937-549bd0abe686" />
@@ -83,6 +84,7 @@ Screenshots and Explanations
 •	Example query using the "breed" index (e.g., finding all animals with a specific breed).
 
 <img width="468" alt="image" src="https://github.com/user-attachments/assets/0aa2316d-7ccd-4eff-a8ac-a52385026d6d" />
+
 •	Output of the explain("executionStats") function showing that the index is used in the query execution plan.
 
 <img width="468" alt="image" src="https://github.com/user-attachments/assets/f2a6875f-f7f1-4158-b005-08543b9e6ed6" />
