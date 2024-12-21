@@ -46,28 +46,32 @@ Prerequisites:
           o	Jupyter Notebook (with required libraries installed).
           
 **Steps to Access MongoDB:**
-1. Start MongoDB service:
-      bash
-      Copy code
-      sudo service mongod start
-      a. Connect to MongoDB:
-          bash
-          Copy code
-          mongo --host <host_name> --port <port_number>
-       b. Confirm connection status:
-          javascript
-          Copy code
-          db.runCommand({ connectionStatus: 1 })
+
+      1. Start MongoDB service:
+            bash
+            Copy code
+            sudo service mongod start
+            a. Connect to MongoDB:
+                bash
+                Copy code
+                mongo --host <host_name> --port <port_number>
+             b. Confirm connection status:
+                javascript
+                Copy code
+                db.runCommand({ connectionStatus: 1 })
    
  
 3. Importing the AAC Database
-Task:
-Import the Austin Animal Center (AAC) Outcomes dataset as the animals collection in the AAC database.
+
+Task: Import the Austin Animal Center (AAC) Outcomes dataset as the animals collection in the AAC database.
 Import and Execution
-  Task: Import the AAC Outcomes CSV file into MongoDB using the mongoimport tool, specifying the database name as "AAC" and the collection name as "animals". Provide screenshots of the import command and its   successful execution.
-  •	Output of the mongoimport command in the Linux terminal showing the command used to import the CSV file.
-  •	Terminal output confirming successful data import, including the number of documents imported.
+
+Task: Import the AAC Outcomes CSV file into MongoDB using the mongoimport tool, specifying the database name as "AAC" and the collection name as "animals". Provide screenshots of the import command and its   successful execution.
+•Output of the mongoimport command in the Linux terminal showing the command used to import the CSV file.
+•Terminal output confirming successful data import, including the number of documents imported.
+
 <img width="468" alt="image" src="https://github.com/user-attachments/assets/db4b00dc-9930-4c52-80a7-f62b70f0b298" />
+
 <img width="468" alt="image" src="https://github.com/user-attachments/assets/0dc6c058-bdd4-44bb-b937-549bd0abe686" />
 
    
@@ -77,8 +81,10 @@ Task: Create a simple index on the key "breed" in the "animals" collection of th
 Screenshots and Explanations
 •	Command in the mongo shell creating the simple index on "breed".
 •	Example query using the "breed" index (e.g., finding all animals with a specific breed).
+
 <img width="468" alt="image" src="https://github.com/user-attachments/assets/0aa2316d-7ccd-4eff-a8ac-a52385026d6d" />
 •	Output of the explain("executionStats") function showing that the index is used in the query execution plan.
+
 <img width="468" alt="image" src="https://github.com/user-attachments/assets/f2a6875f-f7f1-4158-b005-08543b9e6ed6" />
 
   
@@ -87,9 +93,11 @@ Task: Create a compound index on "breed" and "outcome_type" to improve the perfo
 Screenshots and Explanations
 •	Command in the mongo shell creating the compound index on "breed" and "outcome_type".
 •	Example query using the compound index (e.g., finding all animals of a specific breed with an "outcome_type" of "Transfer").
+
    <img width="468" alt="image" src="https://github.com/user-attachments/assets/9b45e1c0-93ad-481b-b9b6-03bc0886d36e" />
 
 •	Output of the explain("executionStats") function showing that the compound index is used in the query execution plan. 
+
 <img width="468" alt="image" src="https://github.com/user-attachments/assets/23a0fe87-62d0-4e8a-9452-c4c49875fa3f" />
 
  
@@ -102,12 +110,15 @@ db.createUser({ user: "aacuser",
   roles: [{ role: "readWrite", db: "AAC" }]
 })
 •	Confirmation output showing successful creation of the "aacuser" account.
+
 <img width="468" alt="image" src="https://github.com/user-attachments/assets/7b254829-3a3e-49af-80a9-a09e07fb5841" />
 
 •	Logging into MongoDB as the admin user, including the login command and the output of db.runCommand({connectionStatus:1}) showing the admin user's connection status. 
+
 <img width="468" alt="image" src="https://github.com/user-attachments/assets/8e8cf69f-b589-4a04-882d-9cdaf6d87d0e" />
 
 •	Logging into MongoDB as "aacuser", including the login command and the output of db.runCommand({connectionStatus:1}) showing the "aacuser" connection status. 
+
 <img width="468" alt="image" src="https://github.com/user-attachments/assets/d5b13ff2-94f3-4e54-ac11-0bbd4e6cbe3c" />
 
  
@@ -120,10 +131,12 @@ o	Inserts the document and returns confirmation of success.
 o	Challenge: Handling invalid data formats. 
 o	Solution: Implemented validation with Python's isinstance() function.
 Create a Document
+
 <img width="318" alt="image" src="https://github.com/user-attachments/assets/a2f60a7c-2334-474c-b0cf-9eb78296c14c" />
 
  
 Output Screenshot
+
 <img width="468" alt="image" src="https://github.com/user-attachments/assets/a1c6576d-37a8-4d7c-b143-0aeb75936f92" />
 
  
@@ -133,9 +146,11 @@ o	Formats the output using json.dumps() for better readability.
 o	Challenge: Managing empty queries. 
 o	Solution: Returns an empty list and a message if no matches are found.
 Query a Document
+
 <img width="468" alt="image" src="https://github.com/user-attachments/assets/ff975cf0-7c64-4774-a358-bdc2c55891c4" />
 
 Output Screenshot
+
 <img width="468" alt="image" src="https://github.com/user-attachments/assets/6e6453bf-bac8-41d2-8d1f-923f3dc2d651" />
 
  
@@ -146,9 +161,11 @@ o	Modifies only the specified fields without affecting other data.
 o	Challenge: Preventing accidental updates to multiple documents.
 o	Solution: Used update_one for targeted updates.
 Update a Document
+
 <img width="468" alt="image" src="https://github.com/user-attachments/assets/8d0cb791-75b2-4bec-a7fb-4e36a39ec1fd" />
 
 Output Screenshot 
+
 <img width="468" alt="image" src="https://github.com/user-attachments/assets/9607c652-59ff-4880-830b-e224a5eb9bc7" />
 
 
@@ -158,9 +175,11 @@ o	Removes only the documents that match the criteria.
 o	Challenge: Ensuring correct deletion of intended documents.
 o	Solution: Returned the count of deleted documents for verification.
 Delete a Document
+
 <img width="468" alt="image" src="https://github.com/user-attachments/assets/54ab1a30-8105-425d-8b01-28c9acd01bbb" />
 
 Output Screenshot
+
 <img width="468" alt="image" src="https://github.com/user-attachments/assets/42ea4656-2104-4601-88e1-c1d080aea67e" />
 
 
@@ -168,12 +187,14 @@ Output Screenshot
 MongoDB Data Modifications
 Rationale for Terminal-Based Updates:
 To avoid saturating the Python code with additional complexity, rescue type modifications were handled directly in MongoDB through the terminal. This approach ensures the codebase remains modular and clean, focusing on CRUD operations without overburdening it with preprocessing logic. By leveraging MongoDB\u2019s flexibility, rescue types were efficiently updated using bulk commands, which also improved runtime performance by precomputing data.
+
 <img width="428" alt="image" src="https://github.com/user-attachments/assets/c08c0a38-7c64-4820-8e79-cb8e0d4ed087" />
 
  
  
 Dashboard Implementation.
 1. Importing Necessary Modules
+   
    <img width="228" alt="image" src="https://github.com/user-attachments/assets/0e77da48-48f8-4b68-8059-ad0aff583ecb" />
 
  
@@ -221,7 +242,9 @@ o	Uses Dash’s HTML components to build the page structure:
 	A clickable logo linking to SNHU’s website.
 	A Dropdown (dcc.Dropdown) that lets the user filter data by rescue type.
 4. Creating a Data Table and Pie Chart
-   <img width="432" alt="image" src="https://github.com/user-attachments/assets/cef52160-6030-42fc-87a5-a6aa86c62a9a" />
+
+
+<img width="432" alt="image" src="https://github.com/user-attachments/assets/cef52160-6030-42fc-87a5-a6aa86c62a9a" />
 
  Explanation:
 1.	DataTable
@@ -235,6 +258,7 @@ o	After the table, a Div labeled map-id is placed to hold the interactive Leafle
 o	Another Div contains a dcc.Graph for displaying a pie chart. Both are placed side by side using Flexbox styling.
 
 5. Callbacks for Filtering Data and Updating the Pie Chart
+   
    <img width="432" alt="image" src="https://github.com/user-attachments/assets/fd8028b8-675e-4d49-9485-0a8f8e29e0d2" />
 
  Explanation:
@@ -248,6 +272,7 @@ o	Output: Updates the figure of the pie chart (pie-chart).
 o	Logic: Filter the DataFrame similarly. Then compute how many animals belong to each breed, limit to the top 10, combine any remaining breeds into an “Other” category, and finally create a pie chart with Plotly Express.
 
 6. Callback to Update the Map
+   
    <img width="432" alt="image" src="https://github.com/user-attachments/assets/4401bf4b-b95e-4e50-a370-26b0b164bafa" />
 
  Explanation:
@@ -258,6 +283,7 @@ o	Logic: Filter the DataFrame similarly. Then compute how many animals belong to
 •	dl.Marker(): A pin dropped at the location. Contains a Tooltip (showing breed) and a Popup (showing the animal’s name).
 
 8. Running the Server
+   
    <img width="156" alt="image" src="https://github.com/user-attachments/assets/5347f0fb-37f2-462b-af2c-3b8fc7aadd0d" />
 
  
