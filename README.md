@@ -36,9 +36,11 @@ Data-Driven Decisions: By turning raw data into clear charts and maps, companies
 **1. Accessing MongoDB Through the Terminal**
 
 Prerequisites:
+
       1.	Download and Install MongoDB:
           o	MongoDB Community Edition
           o	MongoDB Compass for GUI operations.
+          
       2.	Required Tools:
           o	Python 3.x
           o	Jupyter Notebook (with required libraries installed).
