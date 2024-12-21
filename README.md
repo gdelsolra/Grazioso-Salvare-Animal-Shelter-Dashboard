@@ -34,7 +34,8 @@ Data-Driven Decisions: By turning raw data into clear charts and maps, companies
 
 # PROJECT STEPS
 **1. Accessing MongoDB Through the Terminal**
-**Prerequisites:**
+
+Prerequisites:
       1.	Download and Install MongoDB:
           o	MongoDB Community Edition
           o	MongoDB Compass for GUI operations.
